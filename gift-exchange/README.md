@@ -5,7 +5,7 @@ Cependant cette année, Sheldon a changé de ville pour ses études et ne pourra
 
 Il décide donc de créer un programme afin que chacun reçoive sur sa boite mails le nom de la personne qui lui est assignée.
 
-NB:La transmission du mail n'est pas dans le scope de cet exercice. Un affichage dans la console sera suffisant.
+&#9888; La transmission du mail n'est pas dans le scope de cet exercice. Un affichage dans la console sera suffisant.
 
 ## Exemple de sortie attendue:
 
