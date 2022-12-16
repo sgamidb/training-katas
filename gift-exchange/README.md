@@ -9,7 +9,6 @@ NB:La transmission du mail n'est pas dans le scope de cet exercice. Un affichage
 
 ## Exemple de sortie attendue:
 
-
 > Oh Oh Oh {Nom de la personne}
 >
 > Pour cette année nous proposons de faire un échange de cadeaux secrets. 
@@ -23,6 +22,12 @@ NB:La transmission du mail n'est pas dans le scope de cet exercice. Un affichage
 > 
 > Merry christmas
 
+## Liste des personnes : 
+- Dr. Sheldon Cooper
+- Missy Cooper
+- George Cooper Jr.
+- George Cooper Sr.
+- Mary Cooper
 
 ## Consignes métiers : 
 - Pour une liste de personnes données, indiquez pour chacune la personne a qui il doit offrir un présent.
