@@ -3,7 +3,7 @@
  * https://jestjs.io/docs/configuration
  */
 
-module.exports = {
+export default {
   // All imported modules in your tests should be mocked automatically
   // automock: false,
 
@@ -11,7 +11,7 @@ module.exports = {
   // bail: 0,
 
   // The directory where Jest should store its cached dependency information
-  // cacheDirectory: "/private/var/folders/dk/v19nhg7132zg5xkn_qdwt54r0000gn/T/jest_dx",
+  // cacheDirectory: "/private/var/folders/f1/50y6mpkd11x5n58fj78vktz40000gq/T/jest_dz",
 
   // Automatically clear mock calls, instances, contexts and results before every test
   // clearMocks: false,
@@ -100,7 +100,7 @@ module.exports = {
   // notifyMode: "failure-change",
 
   // A preset that is used as a base for Jest's configuration
-  // preset: undefined,
+  preset: 'ts-jest',
 
   // Run tests from one or more projects
   // projects: undefined,
