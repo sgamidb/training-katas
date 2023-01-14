@@ -1,3 +1,5 @@
+import {GameOfLife} from "./game-of-life.js";
+
 const nextState = (cellIsAlive:boolean, aliveNeighbours:number):number => {
 
     if(cellIsAlive) {
@@ -10,8 +12,16 @@ const nextState = (cellIsAlive:boolean, aliveNeighbours:number):number => {
 
 }
 
-const getLiveNeighbours = (x:number,y:number):number => {
-    return 5
+
+const getLiveNeighbours = (board: Array<Array<number>>, x:number,y:number):number => {
+    const isInBoard = ([i, j]: number[]): boolean => i >= 0 && j >= 0 && i < board.length && j < board[i].length;
+    const potentialNeighboursPositions = [
+        [-1, -1], [-1, 0], [-1, 1], [0, -1], [1, 0], [1, 1], [0, 1], [1, -1]
+    ];
+
+    return potentialNeighboursPositions.map(([ i,j]) => [i + x, j + y])
+      .filter(isInBoard)
+      .reduce((aliveCells, [ i, j ]) => aliveCells += board[i][j], 0);
 }
 
 describe('given a living cell', function () {
@@ -51,11 +61,38 @@ describe('given dead cell',  ()=> {
 describe('Given the following board',()=> {
     const givenArray = [
         [1,1,1],
-        [1,0,0],
+        [1,0,1],
         [1,0,0],
     ]
 
-    it('should return 5 alive neighbours for the cell at x:1, y:1', ()=> {
-        expect(getLiveNeighbours(1,1)).toEqual(5)
+    it.each([
+      [1,1,6],
+      [0,0,2],
+      [2,2,1],
+    ])('should return 5 alive neighbours for the cell at x:%s, y:%s', (x, y , aliveNumber)=> {
+        expect(getLiveNeighbours(givenArray, x,y)).toEqual(aliveNumber)
     });
+})
+
+
+
+describe("init game of life", () => {
+    it("tmp", () => {
+        const initialBoard = [
+            [ 0, 0 , 0],
+            [ 0, 0 , 0],
+            [ 0, 0 , 0]
+        ]
+
+        const expectedBoard = [
+            [ 0, 0 , 0],
+            [ 0, 0 , 0],
+            [ 0, 0 , 0]
+        ]
+        const gameOfLife = new GameOfLife(3, 3)
+
+        const res = gameOfLife.getNextFrame();
+
+        expect(res).toStrictEqual(expectedBoard)
+    })
 })
