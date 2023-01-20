@@ -1,4 +1,5 @@
 import ansiEscapes from "ansi-escapes";
+import {Board} from "./game-of-life.js";
 
 const CELL_ALIVE = '\u2593';
 const CELL_DEAD = '\u00B7';
@@ -6,7 +7,7 @@ export class Terminal{
   constructor(private readonly boardColumns: number) {
   }
 
-  printBoard(board: unknown): void{
+  printBoard(board: Board): void{
     const convertedBoard = this.convertBoard(board);
     process.stdout.write(ansiEscapes.clearTerminal);
     process.stdout.write(ansiEscapes.cursorHide);
@@ -20,8 +21,7 @@ export class Terminal{
     })
   }
 
-  convertBoard(board: unknown): Array<number> {
-    // Do something if input board is not an instance of Array<number>
-    return board as Array<number>;
+  convertBoard(board: Board): Array<number> {
+    return board.board.flat();
   }
 }
